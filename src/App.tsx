@@ -1,17 +1,19 @@
 import React from 'react';
-import Board from './component/Board';
+import { Route, Routes } from 'react-router-dom';
 import Userform from './component/Userform';
-import './css/app.css';
+import Home from './component/Home';
+import Header from './component/Header';
+
 
 function App() {
-  const message: string = 'hello world';
-  console.log(message);
-
   return (
-    <div className="wrapper">
-      <h1>안녕하세요~!</h1>
-      <Board />
-      <Userform />
+    <div>
+      <Header/>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/userform" element={<Userform/>} />
+    </Routes>
+
     </div>
   );
 }

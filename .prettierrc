@@ -1,9 +1,8 @@
-{
-  "singleQuote": true,
-  "parser": "typescript",
-  "semi": true,
-  "useTabs": false,
-  "tabWidth": 2,
-  "printWidth": 120,
-  "arrowParens": "always"
-}
+// {
+//   "parser": "typescript",
+//   "useTabs": false,
+//   "tabWidth": 2,
+//   "printWidth": 120,
+//   "arrowParens": "always",
+//   "quoteProps": "preserve"
+// }
