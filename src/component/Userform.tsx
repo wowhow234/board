@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/userform.css';
-import { title } from 'process';
 
 const Userform = () => {
+  type Input = {
+    nickname: string,
+    password: string,
+    title: string,
+    content : string
+  }
+
   const [inputs, setInputs] = useState({
     nickname: "",
     password: "",
@@ -12,19 +18,28 @@ const Userform = () => {
 
   const { nickname, password, title, content } = inputs; // 비구조화 할당
 
-  const onChangeInput = (e) => {
+  const onChangeInput = (e : React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target; // e.target 에서 name과 value 만 가져오기
     setInputs({
       ...inputs,
       [name] : value,
 
     })
-    console.log("onChange되나..", inputs)
+    console.log("onChange되나..", e.target.value)
+  }
+
+  useEffect(() => {
+    console.log("inputs----->", inputs)
+  }, [inputs])
+
+  const onSubmitForm = (e : React.FormEvent<HTMLFormElement> ) => {
+    e.preventDefault();
+    console.log("-----제출완료----", inputs)
   }
 
   return (
     <>
-      <form>
+      <form onSubmit={onSubmitForm}>
         <label>닉네임</label>
         <input type="text" name="nickname" value={nickname} onChange={onChangeInput} required/>
         <label>비밀번호</label>

@@ -11,9 +11,11 @@ const Board = () => {
     return (
       <li key={id}>
         <span>no.{item.id}</span>
-        <span>{item.name}</span>
+        <span>{item.dataname}</span>
+        <span>{item.datatitle}</span>
+        
         <span>
-        {item.content}
+        {item.datacontent}
         </span>
       </li>
     )

@@ -1,7 +1,7 @@
 [
-  { "id": 1, "name": "오렌지", "content": "안녕하세요" },
-  { "id": 2, "name": "사과", "content": "들렀다 가요" },
-  { "id": 3, "name": "파인애플", "content": "넘 멋져요 " }
+  { "id": 1, "dataname": "오렌지", "datatitle" : "제목1", "dataontent": "안녕하세요" },
+  { "id": 2, "dataname": "사과", "datatitle" : "제목2","datacontent": "들렀다 가요" },
+  { "id": 3, "dataname": "파인애플", "datatitle" : "제목3", "datacontent": "넘 멋져요 " }
   
   
 ]
