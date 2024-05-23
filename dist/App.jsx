@@ -4,15 +4,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
-const Board_1 = __importDefault(require("./component/Board"));
+const react_router_dom_1 = require("react-router-dom");
 const Userform_1 = __importDefault(require("./component/Userform"));
+const Home_1 = __importDefault(require("./component/Home"));
+const Header_1 = __importDefault(require("./component/Header"));
 function App() {
-    const message = 'hello world';
-    console.log(message);
     return (<div>
-      <h1>안녕하세요~!</h1>
-      <Board_1.default />
-      <Userform_1.default />
+      <Header_1.default />
+    <react_router_dom_1.Routes>
+      <react_router_dom_1.Route path="/" element={<Home_1.default />}/>
+      <react_router_dom_1.Route path="/userform" element={<Userform_1.default />}/>
+    </react_router_dom_1.Routes>
+
     </div>);
 }
 exports.default = App;
