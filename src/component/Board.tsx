@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/board.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const Board = () => {
@@ -30,16 +31,31 @@ const Board = () => {
   //   )
   // })
 
+  interface Board {
+    id: number;
+    dataname: string;
+    datatitle: string;
+    datacontent: string;
+  }
+
   return (
     <div className="boardwrapper">
       <h3>게시글 내용</h3>
-            <span>no.{board.id}</span>
-    <span>{board.dataname}</span>
-    <span>{board.datatitle}</span>
-        
-    <span>
-   {board.datacontent}
-  </span>
+
+
+        {board.map((item: Board) => {
+          return (
+            <div key={item.id}> 
+              <span>게시글번호 : {item.id}</span>
+              <Link to={`/board/${item.id}`}>
+              {item.datatitle}
+              </Link>
+              <span>작성자 : {item.dataname}</span>
+
+        </div>
+          )
+      })}
+
 
     </div>
   );
