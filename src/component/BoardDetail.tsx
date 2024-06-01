@@ -7,6 +7,9 @@ const BoardDetail = () => {
     const { id } = useParams < { id: string }>()
 
     const [boardDetail, setBoardDetail] = useState<any>([])
+    const [isDelete, setIsDelete] = useState<boolean>(false);
+    const [isDeletePw, setIsDeletePw] = useState<string>()
+    const [isDeleteFail, setIsDeleteFail] = useState<boolean>(false)
 
     const navigate = useNavigate();
     const goBack = () => {
@@ -24,6 +27,28 @@ const BoardDetail = () => {
         .catch((err) => console.log(err));
   },[])
 
+    const onClickDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const dataPw = boardDetail.datapw;
+        if (isDeletePw === dataPw) {
+            setIsDelete(!isDelete);
+            axios.delete(`http://localhost:4000/board/${id}`)
+                .then((response) => {
+                    alert("삭제하였습니다.");
+                    // navigate("/board")
+                    console.log('삭제성공----->', response)
+                })
+                .catch((err) => console.error(err))
+        } else {
+            setIsDeleteFail(true);
+            console.error('에러발생', Error)
+        }
+    }
+
+    const onChangeDelete = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setIsDeletePw(e.target.value);
+        console.log('삭제pw--->', isDeletePw)
+    }
+        
     return (
         <div>
             <h3>게시판 상세 내용</h3>
@@ -33,6 +58,11 @@ const BoardDetail = () => {
             <span>{boardDetail.dataname}</span>
             <span>{boardDetail.datatitle}</span>
             <span>{boardDetail.datacontent}</span>
+            <div style={{border : '1px solid black'}}>
+                비밀번호를 입력하세요 : <input type="password" name="password" value={isDeletePw || ''} onChange={onChangeDelete} />
+            </div>
+            {isDeleteFail && <div style={{color : 'red'}}>비밀번호가 틀렸습니다.</div>}
+            <button onClick={onClickDelete}>삭제하기</button>
         </div>
     );
 };

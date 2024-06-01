@@ -39,6 +39,7 @@ const Board = () => {
   return (
     <div className="boardwrapper">
       <h3>게시글 내용</h3>
+      <Link to={"/"}>메인으로</Link>
         {board.map((item: Board) => {
           return (
             <div key={item.id}> 

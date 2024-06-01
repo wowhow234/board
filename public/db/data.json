@@ -31,45 +31,25 @@
       "datacontent": "관리자123123 "
     },
     {
-      "id": "5",
-      "dataname": "관리자2",
-      "datatitle": "제목5",
-      "datacontent": "관리장ㅇㅇㅇ "
+      "id": "16fc",
+      "dataname": "테스트용글1",
+      "datatitle": "테스트용제목",
+      "datacontent": "테스트내용",
+      "datapw": "123123"
     },
     {
-      "id": "e401",
-      "dataname": "3",
-      "datatitle": "테스트",
-      "datacontent": "안녕",
-      "datapw": "123"
+      "id": "ee18",
+      "dataname": "테스트",
+      "datatitle": "aaa",
+      "datacontent": "dfsdf",
+      "datapw": "2323"
     },
     {
-      "id": "b9a7",
-      "dataname": "두밧두",
-      "datatitle": "테스트2",
-      "datacontent": "안녕하세",
-      "datapw": "dhkfldhkfl"
-    },
-    {
-      "id": "2464",
-      "dataname": "444",
-      "datatitle": "444",
-      "datacontent": "444",
-      "datapw": "444"
-    },
-    {
-      "id": "0f2a",
-      "dataname": "테스트2",
-      "datatitle": "테스트2",
-      "datacontent": "테스트 중 입니다.",
-      "datapw": "test1"
-    },
-    {
-      "id": "1f4b",
-      "dataname": "마자용",
-      "datatitle": "포켓몬",
-      "datacontent": "글 내용",
-      "datapw": "555"
+      "id": "653c",
+      "dataname": "안녕",
+      "datatitle": "dfdsf",
+      "datacontent": "afsfd",
+      "datapw": "34343"
     }
   ]
 }
