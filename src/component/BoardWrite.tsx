@@ -2,16 +2,27 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/userform.css';
 import { useNavigate } from 'react-router-dom';
+import BoardForm from './BoardForm';
 
-const Userform = () => {
-  type Input = {
+
+// export interface Data  {
+//     nickname: string,
+//     password: string,
+//     title: string,
+//     content : string
+// }
+
+  export interface Input {
     nickname: string,
     password: string,
     title: string,
     content : string
   }
+  
+const BoardWrite = () => {
 
-  const [inputs, setInputs] = useState({
+
+  const [inputs, setInputs] = useState<Input>({
     nickname: "",
     password: "",
     title: "",
@@ -35,6 +46,17 @@ const Userform = () => {
     console.log("inputs----->", inputs)
   }, [inputs])
 
+  // const [data, setData] = useState<Data>({
+  //   nickname: "",
+  //   password: "",
+  //   title: "",
+  //   content : "",
+  // });
+
+  // const inputData = (value) => {
+  //   setData(value);
+  // }
+
   const onSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     axios.post("http://localhost:4000/board", {
       dataname: nickname,
@@ -54,7 +76,7 @@ const Userform = () => {
   return (
     <>
       <form onSubmit={onSubmitForm}>
-        <label>닉네임</label>
+        {/* <label>닉네임</label>
         <input type="text" name="nickname" value={nickname} onChange={onChangeInput} required/>
         <label>비밀번호</label>
         <input type="password" name="password" value={password} onChange={onChangeInput} required/>
@@ -62,10 +84,17 @@ const Userform = () => {
         <input type="text" name="title" value={title} onChange={onChangeInput} required/>
         <label>글 내용</label>
         <input type="text" name="content" value={content} onChange={onChangeInput} required/>
-        <button>등록하기</button>
+        <button>등록하기</button> */}
+        <BoardForm
+          // nickname={nickname}
+          // password={password}
+          // title={title}
+          // content={content}
+          inputs={inputs}
+          handleInputChange={onChangeInput} />
       </form>
     </>
   );
 };
 
-export default Userform;
+export default BoardWrite;

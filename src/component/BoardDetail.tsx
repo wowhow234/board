@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import BoardItem from './BoardItem';
+import { Link } from 'react-router-dom';
 
 const BoardDetail = () => {
     const { id } = useParams < { id: string }>()
@@ -63,6 +63,16 @@ const BoardDetail = () => {
             </div>
             {isDeleteFail && <div style={{color : 'red'}}>비밀번호가 틀렸습니다.</div>}
             <button onClick={onClickDelete}>삭제하기</button>
+            <Link
+                to={`/modify/${id}`}
+                state={{
+                    nickname: boardDetail.dataname,
+                    title: boardDetail.datatitle,
+                    content: boardDetail.datacontent
+                }}
+            >
+            <button type="button" >수정하기</button>
+            </Link>
         </div>
     );
 };
